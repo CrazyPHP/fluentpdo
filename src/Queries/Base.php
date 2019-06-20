@@ -331,6 +331,19 @@ abstract class Base implements \IteratorAggregate
     }
 
     /**
+     * Add/Set params $array = [':key'=>'value']
+     *
+     * @param $array
+     * @return $this
+     */
+    public function setParameters($array)
+    {
+        $this->parameters['WHERE'] = array_merge($this->parameters['WHERE'], $array);
+
+        return $this;
+    }
+
+    /**
      * Get query string
      *
      * @param bool $formatted - Return formatted query

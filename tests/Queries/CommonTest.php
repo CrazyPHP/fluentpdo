@@ -26,6 +26,14 @@ class CommonTest extends TestCase
         $this->fluent = new Query($pdo);
     }
 
+    public function testSetParameters()
+    {
+
+        $query = $this->fluent->from('article')->where('user_id = :user_id')->setParameters([':user_id'=>3]);
+
+        self::assertEquals([':user_id'=>3],$query->getParameters());
+    }
+
     public function testFullJoin()
     {
         $query = $this->fluent->from('article')
