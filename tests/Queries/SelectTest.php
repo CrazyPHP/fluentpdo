@@ -16,7 +16,7 @@ class SelectTest extends TestCase
     /** @var Query */
     protected $fluent;
 
-    public function setUp()
+    public function setUp(): void
     {
         global $pdo;
 
@@ -166,7 +166,6 @@ class SelectTest extends TestCase
     }
 
 
-
     public function testSelectArrayParam()
     {
         $query = $this->fluent
@@ -269,7 +268,7 @@ class SelectTest extends TestCase
         $result = $this->fluent->from('user')->fetchAll('id', 'type, name');
 
         self::assertEquals([1 => ['id' => '1', 'type' => 'admin', 'name' => 'Marek'], 2 => ['id' => '2', 'type' => 'author', 'name' => 'Robert'],
-                            3 => ['id' => '3', 'type' => 'admin', 'name' => 'Chris'], 4 => ['id' => '4', 'type' => 'author', 'name' => 'Kevin']],
+            3 => ['id' => '3', 'type' => 'admin', 'name' => 'Chris'], 4 => ['id' => '4', 'type' => 'author', 'name' => 'Kevin']],
             $result);
     }
 
